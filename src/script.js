@@ -60,11 +60,13 @@ terrain.geometry = new THREE.PlaneGeometry(1, 1, 100, 100)
 terrain.geometry.rotateX( - Math.PI / 2)
 
 terrain.material = new THREE.ShaderMaterial({
+    side: THREE.DoubleSide,
     vertexShader: vertexTerrainShader,
     fragmentShader: fragmentTerrainShader
 })
 
 terrain.mesh = new THREE.Mesh(terrain.geometry, terrain.material)
+terrain.mesh.scale.set(10, 10, 10)
 scene.add(terrain.mesh)
 
 /**
