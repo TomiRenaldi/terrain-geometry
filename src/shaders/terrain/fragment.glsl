@@ -1,7 +1,8 @@
+uniform sampler2D uTexture;
 varying float vElevation;
 
 void main()
 {
- float elevation = vElevation + 0.5;
- gl_FragColor = vec4(elevation, elevation, elevation, elevation);
+ vec4 textureColor = texture2D(uTexture, vec2(0.0, vElevation));
+ gl_FragColor = textureColor;
 }
